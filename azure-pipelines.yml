@@ -1,0 +1,15 @@
+trigger:
+  - master
+
+pool:
+  name: Default  # Microsoft-hosted agent with Maven, JDK preinstalled
+
+steps:
+  - script: echo "My first Azure Pipeline for Maven project with Guava"
+    displayName: 'Run a one-line script'
+
+  - script: mvn clean install
+    displayName: 'Build with Maven'
+
+  - script: java -jar target/MyGuavaApp-1.0-SNAPSHOT.jar
+    displayName: 'Run the JAR file'
